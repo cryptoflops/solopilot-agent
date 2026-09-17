@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+strands-agents
+google-genai
+python-dotenv
+requests
+httpx
