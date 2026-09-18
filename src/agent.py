@@ -51,11 +51,27 @@ def _sol_http(method: str, params: list) -> dict:
     return {"error": "all RPCs unreachable"}
 
 
-def _decode_mint(parsed: dict) -> dict:
+def _token_meta(mint: str) -> dict:
+    """Name/symbol from Jupiter's keyless token API; {} on any failure —
+    metadata is decoration, never a blocker for the chain facts."""
+    try:
+        import requests
+        r = requests.get(
+            "https://lite-api.jup.ag/tokens/v2/search",
+            params={"query": mint}, timeout=5).json()
+        t = next((x for x in r if x.get("id") == mint), None)
+        return {"name": t["name"], "symbol": t["symbol"]} if t else {}
+    except Exception:
+        return {}
+
+
+def _decode_mint(parsed: dict, mint: str) -> dict:
     info = parsed["parsed"]["info"]
-    return {"supply": int(info["supply"]), "decimals": info["decimals"],
-            "mint_authority": info.get("mintAuthority"),
-            "freeze_authority": info.get("freezeAuthority")}
+    out = {"supply": int(info["supply"]), "decimals": info["decimals"],
+           "mint_authority": info.get("mintAuthority"),
+           "freeze_authority": info.get("freezeAuthority")}
+    out.update(_token_meta(mint))
+    return out
 
 
 def build_agent():
@@ -81,7 +97,7 @@ def build_agent():
         if isinstance(data, dict) and data.get("program") == "spl-token":
             out["parsed_type"] = data["parsed"]["type"]
             if data["parsed"]["type"] == "mint":
-                out["mint"] = _decode_mint(data)
+                out["mint"] = _decode_mint(data, address)
         else:
             out["data_len"] = len(base64.b64decode(data[0])) if data else 0
         return json.dumps({"address": address, **out})
@@ -159,6 +175,6 @@ if __name__ == "__main__":
     # live check: USDC mint must parse, decimals == 6
     _USDC = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
     v = (_sol_http("getAccountInfo", [_USDC, {"encoding": "jsonParsed"}]).get("result") or {}).get("value")
-    m = _decode_mint(v["data"])
-    assert m["decimals"] == 6, f"USDC mint decode failed: {m}"
+    m = _decode_mint(v["data"], _USDC)
+    assert m["decimals"] == 6 and m.get("symbol") == "USDC", f"USDC decode failed: {m}"
     print(f"ok: USDC decimals=6, supply={m['supply']/1e6:,.0f}, mint_authority={m['mint_authority']}")
