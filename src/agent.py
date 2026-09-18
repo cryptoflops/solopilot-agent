@@ -52,7 +52,7 @@ def _sol_http(method: str, params: list) -> dict:
 
 
 def _token_meta(mint: str) -> dict:
-    """Name/symbol from Jupiter's keyless token API; {} on any failure —
+    """Name/symbol from Jupiter's keyless token API; {} on any failure -
     metadata is decoration, never a blocker for the chain facts."""
     try:
         import requests
