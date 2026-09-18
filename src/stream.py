@@ -13,7 +13,7 @@ import os
 
 from agent import api_key, build_agent
 
-ARTIFACT = "triage_note.md"   # cwd-relative; agent's write_file lands here
+ARTIFACT = "notes/triage.md"   # must match the path the UI prompt asks the agent to write
 
 
 async def run_reasoning_stream(prompt: str):

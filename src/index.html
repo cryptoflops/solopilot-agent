@@ -224,14 +224,14 @@ footer a{color:#7fb3ff;text-decoration:none}
     <a class="cta-b" href="https://github.com/cryptoflops/solopilot-agent" target="_blank" rel="noopener">View source</a>
   </div>
   <div class="ticker">
-    <span>Read-only</span><span>0 chain keys</span><span>Strands SDK</span><span>Hex-auditable</span><span>Public RPC</span><span>MIT</span>
+    <span>Read-only</span><span>0 chain keys</span><span>Strands SDK</span><span>Raw-response auditable</span><span>Public RPC</span><span>MIT</span>
   </div>
 </section>
 
 <main>
   <aside>
     <section class="panel">
-      <div class="phead"><span class="ptitle"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /> </svg>Target contract</span></div>
+      <div class="phead"><span class="ptitle"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /> </svg>Target address</span></div>
       <div class="pbody">
         <label for="addr-input">Address</label>
         <input id="addr-input" spellcheck="false" placeholder="base58 address…" autocomplete="off">
@@ -263,7 +263,7 @@ footer a{color:#7fb3ff;text-decoration:none}
           <li><span class="ok"></span>Permissionless public JSON-RPC, zero chain API keys</li>
           <li><span class="ok"></span>Read-only: zero spending authority by design</li>
           <li><span class="ok"></span>Every claim is a tool result; system prompt bans fabrication</li>
-          <li><span class="ok"></span>Raw hex preserved beside every decoded value</li>
+          <li><span class="ok"></span>Every decoded value sits beside its raw RPC response</li>
         </ul>
       </div>
     </section>
@@ -275,7 +275,7 @@ footer a{color:#7fb3ff;text-decoration:none}
       <span class="psub" id="pipeline-sub">strands event loop</span>
     </div>
     <div class="pbody">
-      <div id="pipeline"><div class="empty">Run a triage to watch the agent plan, dispatch RPCs, decode ABI and write the dossier, live.</div></div>
+      <div id="pipeline"><div class="empty">Run a triage to watch the agent plan, dispatch RPCs, decode accounts and write the note, live.</div></div>
       <div id="agentlog" style="display:none">
         <div id="loglabel">Agent narration</div>
         <pre id="logtext"></pre>
@@ -285,13 +285,13 @@ footer a{color:#7fb3ff;text-decoration:none}
 
   <section class="panel" id="dossier">
     <div class="phead">
-      <span class="ptitle"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg>Artifact · triage_note.md</span>
+      <span class="ptitle"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg>Artifact · notes/triage.md</span>
       <span class="verify" id="verify-badge">read-back verified</span>
     </div>
     <div class="pbody">
-      <div id="md-view"><div class="empty">No artifact yet. When the agent writes and re-reads the file, it renders here.</div></div>
+      <div id="md-view"><div class="empty">No artifact yet. When the agent writes and re-reads the note, it renders here.</div></div>
       <div class="hexblock" id="hex-block"></div>
-      <button class="dl" id="dl-btn"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 15V3" /> <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <path d="m7 10 5 5 5-5" /> </svg>Download triage_note.md</button>
+      <button class="dl" id="dl-btn"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 15V3" /> <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <path d="m7 10 5 5 5-5" /> </svg>Download triage.md</button>
     </div>
   </section>
 </main>
@@ -328,9 +328,9 @@ copyAddr.addEventListener('click', async () => {
 });
 document.getElementById('reset-btn').addEventListener('click', () => {
   if(runBtn.disabled) return;
-  pipeline.innerHTML='<div class="empty">Run a triage to watch the agent plan, dispatch RPCs, decode ABI and write the dossier, live.</div>';
+  pipeline.innerHTML='<div class="empty">Run a triage to watch the agent plan, dispatch RPCs, decode accounts and write the note, live.</div>';
   logtext.textContent=''; logwrap.style.display='none';
-  mdView.innerHTML='<div class="empty">No artifact yet. When the agent writes and re-reads the file, it renders here.</div>';
+  mdView.innerHTML='<div class="empty">No artifact yet. When the agent writes and re-reads the note, it renders here.</div>';
   hexBlock.className='hexblock'; verify.className='verify'; dlBtn.className='dl';
   passCount.textContent='0'; loopTime.textContent='0.0s'; rpcHost.textContent='RPC idle'; rpcDot.className='dot';
   pipeSub.textContent='strands event loop';

@@ -90,6 +90,7 @@ def build_agent():
             return json.dumps(r)
         data = val["data"]
         out = {
+            "rpc": r.get("rpc"),
             "lamports": val["lamports"],
             "sol": val["lamports"] / 1e9,
             "owner": val["owner"],
