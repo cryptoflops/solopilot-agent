@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiBmaWxsPSJub25lIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic29sR3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxNEYxOTUiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDBDMkZGIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5OTQ1RkYiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG93RyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxNEYxOTUiIHN0b3Atb3BhY2l0eT0iMC4zIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzk5NDVGRiIgc3RvcC1vcGFjaXR5PSIwLjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIyNCIgZmlsbD0iIzBCMEUxNCIgc3Ryb2tlPSIjMUYyOTNEIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSI0MiIgc3Ryb2tlPSJ1cmwoI3NvbEdyYWQpIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWRhc2hhcnJheT0iNCA0IiBvcGFjaXR5PSIwLjYiLz4KICA8IS0tIENlbnRyYWwgRGlhbW9uZCBSYWRhciBDb3JlIC0tPgogIDxwYXRoIGQ9Ik02MCAyOCBMODYgNjAgTDYwIDkyIEwzNCA2MCBaIiBzdHJva2U9InVybCgjc29sR3JhZCkiIHN0cm9rZS13aWR0aD0iMi41IiBmaWxsPSJ1cmwoI2dsb3dHKSIvPgogIDwhLS0gQXV0b25vbW91cyBXaW5ncyAvIFBpbG90IE5vZGVzIC0tPgogIDxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjgiIGZpbGw9IiMxNEYxOTUiLz4KICA8Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSIxNCIgc3Ryb2tlPSIjMTRGMTk1IiBzdHJva2Utd2lkdGg9IjEuNSIgb3BhY2l0eT0iMC40Ii8+CiAgPGNpcmNsZSBjeD0iMzQiIGN5PSI2MCIgcj0iMy41IiBmaWxsPSIjMDBDMkZGIi8+CiAgPGNpcmNsZSBjeD0iODYiIGN5PSI2MCIgcj0iMy41IiBmaWxsPSIjOTk0NUZGIi8+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSIyOCIgcj0iMy41IiBmaWxsPSIjMTRGMTk1Ii8+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI5MiIgcj0iMy41IiBmaWxsPSIjMTRGMTk1Ii8+CiAgPGxpbmUgeDE9IjQyIiB5MT0iNTIiIHgyPSI3OCIgeTI9IjY4IiBzdHJva2U9IiMxNEYxOTUiIHN0cm9rZS13aWR0aD0iMS41IiBvcGFjaXR5PSIwLjgiLz4KICA8bGluZSB4MT0iNDIiIHkxPSI2OCIgeDI9Ijc4IiB5Mj0iNTIiIHN0cm9rZT0iIzk5NDVGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuOCIvPgo8L3N2Zz4=">
 <title>SoloPilot: Autonomous Solana Triage Console</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,8 +24,7 @@ body{background:radial-gradient(1200px 800px at 85% -10%, rgba(6,182,212,.07), t
 header{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;
  border-bottom:1px solid var(--line);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50;background:rgba(11,15,23,.75)}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:36px;height:36px;border-radius:10px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.35);
- display:flex;align-items:center;justify-content:center;font:700 14px var(--mono);color:var(--em2)}
+.logo{width:36px;height:36px;flex:none}
 .brand h1{font-family:var(--disp);font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
 .tagline{font:400 11px var(--mono);color:var(--sub)}
 .vpill{font:600 9px var(--mono);text-transform:uppercase;padding:2px 8px;border-radius:99px;
@@ -199,7 +199,32 @@ footer a{color:#7fb3ff;text-decoration:none}
 <body>
 <header>
   <div class="brand">
-    <div class="logo">CP</div>
+    <div class="logo"><svg width="36" height="36" style="display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="solGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14F195" />
+      <stop offset="50%" stop-color="#00C2FF" />
+      <stop offset="100%" stop-color="#9945FF" />
+    </linearGradient>
+    <linearGradient id="glowG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14F195" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#9945FF" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="100" height="100" rx="24" fill="#0B0E14" stroke="#1F293D" stroke-width="2"/>
+  <circle cx="60" cy="60" r="42" stroke="url(#solGrad)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <!-- Central Diamond Radar Core -->
+  <path d="M60 28 L86 60 L60 92 L34 60 Z" stroke="url(#solGrad)" stroke-width="2.5" fill="url(#glowG)"/>
+  <!-- Autonomous Wings / Pilot Nodes -->
+  <circle cx="60" cy="60" r="8" fill="#14F195"/>
+  <circle cx="60" cy="60" r="14" stroke="#14F195" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="34" cy="60" r="3.5" fill="#00C2FF"/>
+  <circle cx="86" cy="60" r="3.5" fill="#9945FF"/>
+  <circle cx="60" cy="28" r="3.5" fill="#14F195"/>
+  <circle cx="60" cy="92" r="3.5" fill="#14F195"/>
+  <line x1="42" y1="52" x2="78" y2="68" stroke="#14F195" stroke-width="1.5" opacity="0.8"/>
+  <line x1="42" y1="68" x2="78" y2="52" stroke="#9945FF" stroke-width="1.5" opacity="0.8"/>
+</svg></div>
     <div>
       <h1>SoloPilot <span class="vpill">v1.0 live</span></h1>
       <div class="tagline">Autonomous Solana Triage · AWS Strands Agents SDK</div>
@@ -217,7 +242,7 @@ footer a{color:#7fb3ff;text-decoration:none}
 <section class="hero">
   <div class="radar"><div class="glow"></div><div class="rings"></div><div class="sweep"></div><div class="hole"></div></div>
   <span class="eyebrow">Autonomous wallet posture for Solana</span>
-  <h2><span class="outline">47 addresses.</span><br><span class="outline">30 clerical minutes.</span><br><span class="cy">Zero</span> of them yours.</h2>
+  <h2><span class="outline">One new mint.</span><br><span class="outline">Ten explorer tabs.</span><br><span class="cy">One</span> prompt instead.</h2>
   <p>SoloPilot is an autonomous Solana triage agent on the AWS Strands Agents SDK. It reads live Solana mainnet over permissionless public RPC, decodes accounts, mints and token holdings, and writes the triage note below.</p>
   <div class="ctas">
     <button class="cta-a" id="hero-cta">Triage an address <span class="arr">&#8599;</span></button>

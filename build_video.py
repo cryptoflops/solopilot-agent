@@ -126,11 +126,11 @@ SLIDES = {
 
 <span class="cy">$</span> solopilot triage EPjF…Tt1v
   <span class="accent">●</span> SPL:TOKEN_AUDIT_PASS
-  supply   <span class="accent">7,684,468,333</span> USDC
+  supply   <span class="accent">8,039,285,208</span> USDC
   decimals <span class="accent">6</span>
   mint_auth     BJE5…ruG
   freeze_auth   <span class="am">present</span>
-  <span class="accent">✓ read-back verified</span>  <span class="mut">5.2s</span></pre>
+  <span class="accent">✓ read-back verified</span>  <span class="mut">6.5s</span></pre>
    </div></div>
   {ftr("SOLANA MAINNET-BETA // PUBLIC RPC", "STATUS: TRIAGE-READY")}</div></div>""",
 
@@ -175,7 +175,7 @@ agent = Agent(model=GeminiModel(...),
    <div style="flex:.8; display:flex; flex-direction:column; gap:22px; justify-content:center">
     <div class="card glow"><div class="lbl">SDK LOOP</div><b>Plans, dispatches, retries</b><span>The custom part is tool discipline: fallback RPCs, raw response kept beside every decoded value</span></div>
     <div class="card"><div class="lbl">MODEL SWAP</div><b class="mono" style="font-size:24px">one line</b><span>Gemini → Bedrock → any Strands provider</span></div></div></div>
-  {ftr("6 TOOLS // 1 SYSTEM PROMPT", "LATENCY P50: 5.2s")}</div></div>""",
+  {ftr("6 TOOLS // 1 SYSTEM PROMPT", "LATENCY P50: 6.2s")}</div></div>""",
 
  "09-limits": f"""<div class="slide">{hdr(5,"DEPLOY")}<div class="frame">{cross()}
   {idx("05_ROADMAP","SCOPE AND WHAT'S NEXT")}
@@ -204,8 +204,8 @@ NARR = {
  "01-title": "This is SoloPilot. An autonomous Solana triage agent on the AWS Strands Agents SDK, built for the Colosseum Crypto World's Fair.",
  "02-problem": "Before you interact with any Solana address you want to know what it is. Is it a mint, and who holds mint and freeze authority. Is it a wallet, and what does it actually hold. Today that means explorer tabs and decoding account data by eye. SoloPilot does the reading and leaves you a note.",
  "03-how": "You give it an address. The agent picks its own tools. Get account info, parse the mint layout, read balances, list every token holding, check chain health. It writes a triage note, then reads the file back to prove it landed. All of it over public RPC, zero chain API keys. The system prompt bans made up chain facts.",
- "05-demo1": "This is the real console, one take. First the USDC mint. Two tool passes, five seconds. The note decodes the supply at seven point six eight billion, six decimals, and both authorities, mint authority starting B J E 5, freeze authority present.",
- "06-demo2": "Then reset, and triage that mint authority itself. Four passes, four point six seconds. The first run surfaced this address as the mint authority. The second follows it, and finds it is not a normal wallet. It is an SPL multisig holding six token accounts. That connection came from reading the chain.",
+ "05-demo1": "This is the real console, one take. First the USDC mint. Two tool passes, six and a half seconds. The note decodes the supply at eight point zero four billion, six decimals, and both authorities, mint authority starting B J E 5, freeze authority present.",
+ "06-demo2": "Then reset, and triage that mint authority itself. Four passes, five point seven seconds. The first run surfaced this address as the mint authority. The second follows it, and finds it is not a normal wallet. It is an SPL multisig holding six token accounts. That connection came from reading the chain.",
  "08-strands": "Under the hood it is pure Strands. Six tool functions, a system prompt, and the SDK loop doing planning, dispatch, and retries. The custom part is tool discipline: parsed decoding, fallback RPCs, the raw response kept next to every number. Swapping Gemini for another model is one line.",
  "09-limits": "What it does not do yet: no transaction history, no prices, no batch mode. Next is a Jupiter price cross-check so holdings show in dollars, then a watchlist run. It stays read only by design, so there is no spending authority to trust.",
  "10-close": "Clone it, run it against mainnet, and the agent writes its own proof. SoloPilot. Thanks for watching.",
