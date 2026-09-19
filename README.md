@@ -7,6 +7,8 @@ the runtime executes them against **keyless public Solana JSON-RPC** (zero
 API keys beyond the model). Built on the [AWS Strands Agents SDK](https://strandsagents.com)
 with Gemini as the model provider.
 
+![SoloPilot console: completed USDC mint triage with live tool trace and read-back verified artifact](assets/screenshot.png)
+
 ## Why this exists
 
 Checking a Solana address before interacting with it means jacking explorer
